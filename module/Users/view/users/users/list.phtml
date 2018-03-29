@@ -1,0 +1,13 @@
+<h2> Usuários Cadastrados</h2>
+<table>
+	<tr>
+	
+		<?php foreach($posts as $post): ?>
+		<tr>
+			<td><?= $this->escapeHtml($post->nome); ?></td> 
+			
+		</tr>
+	<?php endforeach; ?>
+	</tr>
+	
+</table>

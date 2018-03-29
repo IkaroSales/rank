@@ -1,0 +1,13 @@
+<h2>Posiçao no Rank</h2>
+<table>
+	<tr>
+	
+		<?php foreach($posts as $post): ?>
+		<tr>
+			<td><?= $this->escapeHtml($post->rank); ?></td> 
+			
+		</tr>
+	<?php endforeach; ?>
+	</tr>
+	
+</table>

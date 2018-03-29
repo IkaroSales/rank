@@ -1,0 +1,38 @@
+<h1>Novos Dados</h1>
+
+<?php
+
+$nome = $form->get('nome');
+$nome->setAttribute('class','form-control');
+
+$rank = $form->get('rank');
+$rank->setAttribute('class','form-control');
+
+$pontos = $form->get('pontos');
+$pontos->setAttribute('class','form-control');
+
+$submit = $form->get('submit');
+$submit->setAttribute('class','btn btn-warning');
+
+$form->setAttribute('action', $this->url('post', ['action' => 'add']));
+$form->prepare();
+
+echo $this->form()->openTag($form);    // imprimir dados do meu form
+?>
+<div class="control-group">
+	<?=$this->formLabel($nome, "Nome");?>
+	<?=$this->formElement($nome);?> 
+</div>
+<div class="control-group">
+	<?=$this->formLabel($rank, "Rank");?>
+	<?=$this->formElement($rank);?> 
+</div>
+<div class="control-group">
+	<?=$this->formLabel($pontos, "Pontos");?>
+	<?=$this->formElement($pontos);?> 
+</div>
+<?php 
+echo $this->formSubmit($submit);
+echo $this->formHidden($form->get('id'));
+echo $this->form()->closeTag();
+?>

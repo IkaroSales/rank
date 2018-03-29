@@ -1,0 +1,59 @@
+
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<h1><?php echo $this->escapeHtml("DevOps  Ranking"); ?></h1>
+
+
+<table class="table table-bordered">
+	<thead>
+		<th>ID</th>
+		<th>Nome</th>
+		<th>Rank</th>
+		<th>Pontos</th>
+		<th></th>
+	</thead>
+	<tbody>
+	<?php foreach($posts as $post): ?>
+		<tr>
+			<td><?= $post->id; ?></td>
+			<td><?= $this->escapeHtml($post->nome); ?></td> 
+			<td><?= $this->escapeHtml($post->rank); ?></td>
+			<td><?= $this->escapeHtml($post->pontos); ?></td>
+			<td width="15%" align="center">
+				<a href="<?=$this->url('post', ['action'=> 'edit', 'id' => $post->id]); ?>" class="btn btn-sm btn-success">
+					Editar
+				</a>
+				<a href="<?=$this->url('post', ['action'=> 'delete', 'id' => $post->id]); ?>" onclick="return confirm('Você quer realmente excluir ?')" class="btn btn-sm btn-danger">
+					Deletar
+				</a>
+				
+			</td>
+		</tr>
+	<?php endforeach; ?>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="2">Total de <?= count($posts); ?> usúarios cadastrados</td>
+			
+			<td colspan="3" align="right">
+	
+				<a href="<?=$this->url('post', ['action'=> 'busca']); ?>" class="btn btn-sm btn-primary">
+					Consultar Dados
+				</a>
+				<a href="<?=$this->url('post', ['action'=> 'busca']); ?>" class="btn btn-sm btn-success">
+					Select
+				</a>
+
+				<a href="<?=$this->url('post', ['action'=>'add']); ?>" class="btn btn-sm btn-warning">
+					Cadastrar
+				</a>
+				<a href="<?=$this->url('post', ['action'=> 'list']); ?>" class="btn btn-sm btn-info">
+					Listar Usuarios
+				</a>
+				
+			</td>
+
+	</tfoot>
+</table>
