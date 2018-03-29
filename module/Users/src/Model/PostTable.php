@@ -6,15 +6,14 @@ use Zend\Session\Exception\RuntimeException;
 use Zend\Db\TableGateway;
 use Zend\Db\Sql\Select;
 use Zend\Db\Sql\Sql;
+use Zend\Db\ResultSet\ResultSet;
+use Zend\Db\Adapter\Driver\ResultInterface;
+use Zend\Db\Adapter\AdapterInterface;
 
 class PostTable {                      // ficam as queres
     private $tableGateway;
-    public $table;
     public $adapter;
-    private $db;
     
-
-
     public function __construct(TableGatewayInterface $tableGateway){
         $this->tableGateway = $tableGateway;
     }
@@ -26,19 +25,18 @@ class PostTable {                      // ficam as queres
     public function fetchRow() {
         return $this->tableGateway->select();
     }
-    /* public function findPost(rank $rank){
-        $this->rank = $rank;
-                                                    //  SELECT rank FROM `post` ORDER BY rank DESC
-        $select->'rank' FRON('post');
-               -> ORDERBY('rank');
-        return $this->tableGateway->select();
-        
-     }*/
+    
+    /*public function findPost(){
+        $this->adapter = $adapter;
 
-   /* public function findPost(){
-        return $this->tableGateway->select()FROM('post');
-                                  ->where('nome', 'A%');
-        // return $this->tableGateway->select($select);
+        $sql = new  Sql($adapter); 
+        $select = $sql->select();
+        $select->from('post');
+        $select->where(array('id' => 48));
+        return $this->adpter->select();
+
+        //$statement = $sql->prepareStatementForSqlObject($select);
+        //$results = $statement->execute();
     }*/
 
     public function save(Post $post){

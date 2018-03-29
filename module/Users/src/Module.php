@@ -23,6 +23,11 @@ class Module implements ConfigProviderInterface {
                     $tableGateway = $container->get(Model\PostTableGateway::class);
                     return new Model\PostTable($tableGateway);
                 },
+                    
+                /*Model\PostTable::class => function($container) {
+                    $adapter = $container->get(Model\adapterInterface::class);
+                    return new Model\PostTable($adapter);
+                },*/
                 Model\PostTableGateway::class => function($container) {
                     $dbAdapter = $container->get(AdapterInterface::class);
                     $resultSetPrototype = new ResultSet();

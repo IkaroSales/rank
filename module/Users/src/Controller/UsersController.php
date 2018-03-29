@@ -37,14 +37,14 @@ class UsersController extends AbstractActionController {
         ]);
        
     }
-     public function pesqAction(){    // select
+    /*public function pesqAction(){    // select
         $postsTable = $this->table;
 
         return new ViewModel([
             'posts' => $postsTable->findPost()   
         ]);
        
-    }
+    }*/
 
      public function buscaAction(){      // rank
         $postsTable = $this->table;
