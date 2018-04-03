@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 28, 2018 at 07:16 PM
+-- Generation Time: Apr 03, 2018 at 01:44 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.9
 
@@ -41,7 +41,9 @@ INSERT INTO `post` (`id`, `nome`, `rank`, `pontos`) VALUES
 (47, 'Maria', 2, 100),
 (48, 'Bruno', 4, 50),
 (49, 'Maria', 3, 80),
-(51, 'Ayla', 1, 130);
+(51, 'Ayla', 1, 200),
+(54, 'Vera', 11, 47),
+(55, 'Deby', 8, 70);
 
 --
 -- Indexes for dumped tables
@@ -61,7 +63,7 @@ ALTER TABLE `post`
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

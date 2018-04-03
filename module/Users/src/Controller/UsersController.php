@@ -26,9 +26,10 @@ class UsersController extends AbstractActionController {
         $postsTable = $this->table;
 
         return new ViewModel([
-        	'posts' => $postsTable->fetchAll()   
+        	'posts' => $postsTable->fetchOrder()   
         ]);
-    }   
+    }
+
     public function listAction(){    // usuarios
         $postsTable = $this->table;
 
@@ -37,20 +38,20 @@ class UsersController extends AbstractActionController {
         ]);
        
     }
-    /*public function pesqAction(){    // select
+    public function pesqAction(){    // select
         $postsTable = $this->table;
 
         return new ViewModel([
-            'posts' => $postsTable->findPost()   
+            'posts' => $postsTable->findOrderDecresc()   
         ]);
        
-    }*/
+    }
 
      public function buscaAction(){      // rank
         $postsTable = $this->table;
 
         return new ViewModel([
-            'posts' => $postsTable->fetchAll()   
+            'posts' => $postsTable->fetchOrder()   
         ]);
        
     }
@@ -122,3 +123,5 @@ class UsersController extends AbstractActionController {
     } 
 
 }
+
+

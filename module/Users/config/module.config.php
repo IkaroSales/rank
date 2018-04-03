@@ -24,8 +24,8 @@ return [
             'post' => [
                 'type' => Segment::class, 
                 'options' => [
-                    'route'    => '/users[/:action[/:id]]',   // se eu chamar /users funciona - /users/add tambem 
-                    'constraints'=>[                          // regras para a nossa rota
+                    'route'    => '/users[/:action[/:id]]',   
+                    'constraints'=>[                          
                         'action'=>'[a-zA-Z][a-zA-Z0-9_-]*',
                         'id' => '[0-9]+',
                     ],

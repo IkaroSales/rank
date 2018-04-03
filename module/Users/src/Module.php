@@ -23,11 +23,6 @@ class Module implements ConfigProviderInterface {
                     $tableGateway = $container->get(Model\PostTableGateway::class);
                     return new Model\PostTable($tableGateway);
                 },
-                    
-                /*Model\PostTable::class => function($container) {
-                    $adapter = $container->get(Model\adapterInterface::class);
-                    return new Model\PostTable($adapter);
-                },*/
                 Model\PostTableGateway::class => function($container) {
                     $dbAdapter = $container->get(AdapterInterface::class);
                     $resultSetPrototype = new ResultSet();
@@ -35,12 +30,6 @@ class Module implements ConfigProviderInterface {
 
                     return new TableGateway('post', $dbAdapter, null, $resultSetPrototype);
                  }    
-               /* "Users\Model\Post" => function($container) {
-                    $dbAdapter = $container->get('Zend\Db\Adapter\Adapter');
-                    $table = new \Users\Model\Post('Post',$Adapter);
-
-                    return $table;
-                }*/
                 
             ]
         ];  
@@ -57,26 +46,3 @@ class Module implements ConfigProviderInterface {
     }
 }
 
-/*class Module implements AutoloaderProviderInterface, ConfigProviderInterface
-{
-    //const VERSION = '3.0.3-dev';
-
-     public function getAutoloaderConfig()
-    {
-        return array(
-            'Zend\Loader\ClassMapAutoloader' => array(
-                __DIR__ . '/autoload_classmap.php',
-            ),
-            'Zend\Loader\StandardAutoloader' => array(
-                'namespaces' => array(
-                    __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
-                ),
-            ),
-        );
-    }
-     public function getConfig()
-    {
-        return include __DIR__ . '/../config/module.config.php';
-    }
-}
-*/

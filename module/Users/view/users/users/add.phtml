@@ -5,8 +5,7 @@
 $nome = $form->get('nome');
 $nome->setAttribute('class','form-control');
 
-$rank = $form->get('rank');
-$rank->setAttribute('class','form-control');
+
 
 $pontos = $form->get('pontos');
 $pontos->setAttribute('class','form-control');
@@ -23,10 +22,7 @@ echo $this->form()->openTag($form);    // imprimir dados do meu form
 	<?=$this->formLabel($nome, "Nome");?>
 	<?=$this->formElement($nome);?> 
 </div>
-<div class="control-group">
-	<?=$this->formLabel($rank, "Rank");?>
-	<?=$this->formElement($rank);?> 
-</div>
+
 <div class="control-group">
 	<?=$this->formLabel($pontos, "Pontos");?>
 	<?=$this->formElement($pontos);?> 

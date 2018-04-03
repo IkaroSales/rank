@@ -6,20 +6,24 @@
 <h1><?php echo $this->escapeHtml("DevOps  Ranking"); ?></h1>
 
 
-<table class="table table-bordered">
+<table class="table table-bordered table-hover">
 	<thead>
 		<th>ID</th>
-		<th>Nome</th>
+		<th>Usuarios</th>
 		<th>Rank</th>
 		<th>Pontos</th>
 		<th></th>
 	</thead>
 	<tbody>
-	<?php foreach($posts as $post): ?>
+	<?php
+		$i = 0;
+		foreach($posts as $post):
+			++$i;
+	?>
 		<tr>
 			<td><?= $post->id; ?></td>
 			<td><?= $this->escapeHtml($post->nome); ?></td> 
-			<td><?= $this->escapeHtml($post->rank); ?></td>
+			<td><?= $i; ?></td>
 			<td><?= $this->escapeHtml($post->pontos); ?></td>
 			<td width="15%" align="center">
 				<a href="<?=$this->url('post', ['action'=> 'edit', 'id' => $post->id]); ?>" class="btn btn-sm btn-success">
@@ -35,25 +39,11 @@
 	</tbody>
 	<tfoot>
 		<tr>
-			<td colspan="2">Total de <?= count($posts); ?> usúarios cadastrados</td>
-			
-			<td colspan="3" align="right">
-	
-				<a href="<?=$this->url('post', ['action'=> 'busca']); ?>" class="btn btn-sm btn-primary">
-					Consultar Dados
-				</a>
-				<a href="<?=$this->url('post', ['action'=> 'pesq']); ?>" class="btn btn-sm btn-success">
-					Select
-				</a>
-
-				<a href="<?=$this->url('post', ['action'=>'add']); ?>" class="btn btn-sm btn-warning">
+			<td colspan="4">Total de <?= count($posts); ?> usúarios cadastrados</td>
+			<td width="15%" align="center">
+				<a href="<?=$this->url('post', ['action'=>'add']); ?>" class="btn btn-sm btn-info">
 					Cadastrar
 				</a>
-				<a href="<?=$this->url('post', ['action'=> 'list']); ?>" class="btn btn-sm btn-info">
-					Listar Usuarios
-				</a>
-				
 			</td>
-
 	</tfoot>
 </table>

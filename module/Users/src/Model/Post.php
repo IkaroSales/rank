@@ -5,7 +5,7 @@ use Zend\Db\Table\Select;
 
 class Post{
 	
-	public $id;   // setando os dados da tabela
+	public $id;                                     // setando os dados da tabela
 	public $nome;
 	public $rank;
 	public $pontos;
@@ -14,7 +14,7 @@ class Post{
 	private $hydrator;
     private $postPrototype;
 
-	public function exchangeArray(array $data) {           // idrator - busca methodos dentro dos models 
+	public function exchangeArray(array $data) {                   // idrator - busca methodos dentro dos models 
 		$this->id = (!empty($data['id'])) ? $data['id'] : null;   
 		$this->nome = (!empty($data['nome'])) ? $data['nome'] : null;
 		$this->rank  = (!empty($data['rank'])) ? $data['rank'] : null;
@@ -29,20 +29,5 @@ class Post{
 			'pontos'   => $this->pontos
 		];
 	}
-	 public function getId()
-    {
-        return $this->id;
-    }
-
-    
-    public function getNome()
-    {
-        return $this->nome;
-    }
-
-    public function getRank()
-    {
-        return $this->rank;
-    }
-	
+	 
 }
