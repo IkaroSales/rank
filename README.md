@@ -28,5 +28,6 @@ $ docker-compose run zf composer install
 ### End-point
 
 ```nginx
+http://localhost:8080/users/add
 http://localhost:8080/public/users/add
 ```
