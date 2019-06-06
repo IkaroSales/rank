@@ -10,32 +10,38 @@ use Zend\Db\ResultSet\ResultSet;
 use Zend\Db\Adapter\Driver\ResultInterface;
 use Zend\Db\Adapter\AdapterInterface;
 
-class PostTable {                                                     // ficam as queres
+class PostTable {
     private $tableGateway;
     public $adapter;
     
-    public function __construct(TableGatewayInterface $tableGateway){
+    public function __construct(TableGatewayInterface $tableGateway)
+    {
         $this->tableGateway = $tableGateway;
     }
 
-    public function fetchAll() {
+    public function fetchAll()
+    {
         return $this->tableGateway->select();
     }
     
-    public function fetchOrder() {
+    public function fetchOrder()
+    {
         return $this->tableGateway->select(function (Select $select) { $select->order('pontos DESC'); });
     }
-     public function findOrderDecresc(){
+    
+    public function findOrderDecresc()
+    {
         return $this->tableGateway->select(function (Select $select) { $select->order('pontos DESC'); });
-        
     }
-    public function save(Post $post){
+
+    public function save(Post $post)
+    {
         $data = array(
             'nome' => $post->nome,
             'rank'  => $post->rank,
-            'pontos'  => $post->pontos,
+            'pontos'  => $post->pontos
         );
-        $id = (int)$post->id;
+        $id = (int) $post->id;
 
         if($id == 0) {                                                              // se id for zero insere
             $this->tableGateway->insert($data);
@@ -48,11 +54,13 @@ class PostTable {                                                     // ficam a
         $this->tableGateway->update($data, ['id' => $id]);
     }
 
-    public function delete($id){
+    public function delete($id)
+    {
         $this->tableGateway->delete(['id' => (int) $id]);
     }
 
-    public function find($id){                      // metodo para recuperar os dados do banco (get Us)
+    public function find($id)
+    {
         $id  = (int) $id;             
         $rowset = $this->tableGateway->select(array('id' => $id));
         $row = $rowset->current();
@@ -61,12 +69,4 @@ class PostTable {                                                     // ficam a
         }
         return $row;
     }
-
 }
-
-
-
-
-
-
-

@@ -11,7 +11,7 @@ use Users\Model\Post;
 use Zend\Db\Table\Select;
 use Zend\Db\Adapter;
 use Zend\Db\Sql\Sql;
-//use Zend\Db\Sql\Select;
+// use Zend\Db\Sql\Select;
 
 class UsersController extends AbstractActionController {
     private $table;
@@ -26,7 +26,7 @@ class UsersController extends AbstractActionController {
         $postsTable = $this->table;
 
         return new ViewModel([
-        	'posts' => $postsTable->fetchOrder()   
+        	'posts' => $postsTable->fetchAll()   
         ]);
     }
 
@@ -97,6 +97,7 @@ class UsersController extends AbstractActionController {
         catch(\Exception $e){
             return $this->redirect()->toRoute('post');
         }
+        
         $form = new PostForm();
         $form->bind($post);      //bind preenche automaticamente os campos do meu form
         $form->get('submit')->setAttribute('value','Edit Post');

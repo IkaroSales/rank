@@ -1,13 +1,10 @@
 <h2>Pontução dos Usuarios</h2>
 <table>
 	<tr>
-	
 		<?php foreach($posts as $post): ?>
-		<tr>
-			<td><?= $this->escapeHtml($post->pontos); ?></td> 
-			
-		</tr>
-	<?php endforeach; ?>
+			<tr>
+				<td><?= $this->escapeHtml($post->pontos); ?></td> 
+			</tr>
+		<?php endforeach; ?>
 	</tr>
-	
 </table>

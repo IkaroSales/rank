@@ -11,29 +11,27 @@ use Zend\Hydrator\Reflection as ReflectionHydrator;
 use Zend\Db\ResultSet\HydratingResultSet;
 use Zend\Hydrator\HydratorInterface;
 
-
-
-class ZendDbSqlRepository implements PostRepositoryInterface{
-
+class ZendDbSqlRepository implements PostRepositoryInterface {
 	private $db;
 	private $hydrator;
     private $postPrototype;
 
-    public function __construct(AdapterInterface $db, HydratorInterface $hydrator,Post $postPrototype){
-        
+	public function __construct(AdapterInterface $db, HydratorInterface $hydrator,Post $postPrototype)
+	{
         $this->db = $db;
         $this->hydrator      = $hydrator;
         $this->postPrototype = $postPrototype;
-    }
-    public function findAllPosts(){
-
+	}
+	
+	public function findAllPosts()
+	{
     	$sql    = new Sql($this->db);
         $select = $sql->select('post');
         $stmt   = $sql->prepareStatementForSqlObject($select);
         $result = $stmt->execute();
         
         if (! $result instanceof ResultInterface || ! $result->isQueryResult()) {
-        return [];
+        	return [];
 	    }
 
 	    $resultSet = new HydratingResultSet($this->hydrator, $this->postPrototype);
@@ -41,8 +39,8 @@ class ZendDbSqlRepository implements PostRepositoryInterface{
 	    return $resultSet;
 	}
 
-    public function findPost($id){
-
+	public function findPost($id)
+	{
     	$sql       = new Sql($this->db);
 	    $select    = $sql->select('post');
 	    $select->where(['id = ?' => $id]);
@@ -52,8 +50,7 @@ class ZendDbSqlRepository implements PostRepositoryInterface{
 
 	    if (! $result instanceof ResultInterface || ! $result->isQueryResult()) {
 	        throw new RuntimeException(sprintf(
-	            'Failed retrieving blog post with identifier "%s"; unknown database error.',
-	            $id
+	            'Failed retrieving blog post with identifier "%s"; unknown database error.', $id
 	        ));
 	    }
 
@@ -63,11 +60,10 @@ class ZendDbSqlRepository implements PostRepositoryInterface{
 
 	    if (! $post) {
 	        throw new InvalidArgumentException(sprintf(
-	            'Blog post with identifier "%s" not found.',
-	            $id
+	            'Blog post with identifier "%s" not found.', $id
 	        ));
 	    }
 
-	    return $post;
-	
+		return $post;
+	}
 }
