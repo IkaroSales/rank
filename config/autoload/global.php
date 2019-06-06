@@ -2,8 +2,8 @@
 
 return array(
 	'db' => array(
-        'driver'         => 'Pdo',
-        'dsn'            => 'mysql:dbname=meubanco;host=localhost',
+        'driver'         => 'pdo',
+        'dsn'            => 'mysql:dbname=meubasdsanco; host=localhost',
         'username'       => 'root',
         'password'       => '',
         'driver_options' => array(

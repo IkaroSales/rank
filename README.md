@@ -23,8 +23,22 @@ Once installed, you can test it out immediately using PHP's built-in web server:
 ```bash
 $ cd path/to/install
 $ php -S 0.0.0.0:8080 -t public/ public/index.php
-# OR use the composer alias:
-$ composer run --timeout 0 serve
+
+-- httpd.conf
+<VirtualHost *:80>
+    ServerName zfapp.localhost
+    ErrorLog "logs/dropbox.local-error.log"
+    DocumentRoot C:/xampp/htdocs/rank/public
+    <Directory C:/xampp/htdocs/rank/public>
+        DirectoryIndex index.php
+        AllowOverride All
+        Require all granted
+    </Directory>
+</VirtualHost>
+
+
+-- MySql
+GRANT ALL PRIVILEGES ON *.* TO ''@localhost
 ```
 
 This will start the cli-server on port 8080, and bind it to all network
