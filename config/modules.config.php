@@ -1,6 +1,10 @@
 <?php
 
 return [
+    'Zend\I18n',
+    'Zend\InputFilter',
+    'Zend\Filter',
+    'Zend\Hydrator',
     'Zend\ServiceManager\Di',
     'Zend\Session',
     'Zend\Mvc\Plugin\Prg',
@@ -15,6 +19,7 @@ return [
     'Zend\Cache',
     'Zend\Router',
     'Zend\Validator',
+    'ZendDeveloperTools',
     'Application',
     'Users'
 ];
