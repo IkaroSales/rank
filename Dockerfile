@@ -1,4 +1,4 @@
-FROM php:7.0-apache
+FROM php:7.3
 
 MAINTAINER mncpadilha
 
@@ -17,7 +17,7 @@ COPY ./module/ /var/www/html/module/
 COPY ./public/ /var/www/html/public/
 COPY ./ /var/www/html/
 
-WORKDIR /var/www/html/public
+WORKDIR /var/www/html
 
 CMD ["php", "-S", "0.0.0.0:8080"]
 
