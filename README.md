@@ -24,6 +24,9 @@ Once installed, you can test it out immediately using PHP's built-in web server:
 $ cd path/to/install
 $ php -S 0.0.0.0:8080 -t public/ public/index.php
 
+-- Start Mysql
+$ /etc/init.d/mysql start
+
 -- httpd.conf
 <VirtualHost *:80>
     ServerName zfapp.localhost
